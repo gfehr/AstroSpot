@@ -1,0 +1,178 @@
+/* Global Variables & Reset */
+:root {
+  --color-astro-900: #0B0D17;
+  --color-astro-800: #15192B;
+  --color-astro-700: #1F253D;
+  --color-astro-accent: #7C3AED;
+  --color-astro-highlight: #38BDF8;
+}
+
+body {
+  background-color: var(--color-astro-900);
+  color: #E2E8F0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-astro-900);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-astro-700);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-astro-highlight);
+}
+
+/* Component Classes */
+.astro-card {
+  background-color: var(--color-astro-800);
+  border: 1px solid var(--color-astro-700);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 300ms;
+}
+
+.astro-card:hover {
+  border-color: var(--color-astro-highlight);
+}
+
+.astro-input-group {
+  position: relative;
+  width: 100%;
+}
+
+.astro-input {
+  width: 100%;
+  background-color: var(--color-astro-800);
+  border: 1px solid var(--color-astro-700);
+  border-radius: 0.75rem;
+  color: white;
+  padding: 0.75rem 1rem 0.75rem 2.5rem; /* pl-10 equivalent */
+  outline: none;
+  transition: all 200ms;
+}
+
+.astro-input:focus {
+  border-color: var(--color-astro-highlight);
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+.astro-input::placeholder {
+  color: #6B7280;
+}
+
+.astro-input-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #6B7280;
+  transition: color 200ms;
+  pointer-events: none;
+}
+
+.astro-input-group:focus-within .astro-input-icon {
+  color: var(--color-astro-highlight);
+}
+
+.astro-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-astro-accent);
+  color: white;
+  font-weight: 500;
+  border-radius: 0.75rem;
+  transition: background-color 200ms;
+  box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.astro-btn:hover:not(:disabled) {
+  background-color: #6D28D9; /* violet-700 */
+}
+
+.astro-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.astro-btn-secondary {
+  background-color: var(--color-astro-700);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 200ms;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.astro-btn-secondary:hover:not(:disabled) {
+  background-color: #374151; /* gray-700ish */
+}
+
+.astro-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+
+.astro-badge-default {
+  background-color: var(--color-astro-700);
+  color: var(--color-astro-highlight);
+  border-color: var(--color-astro-700);
+}
+
+.astro-badge-feature {
+  background-color: rgba(15, 23, 42, 0.5); /* astro-900/50 */
+  border-color: rgba(31, 37, 61, 0.5); /* astro-700/50 */
+  color: #D1D5DB;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+/* Animations */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.animate-twinkle {
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+/* Range Slider Customization */
+input[type=range] {
+  -webkit-appearance: none;
+  background: transparent;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: var(--color-astro-highlight);
+  cursor: pointer;
+  margin-top: -6px; 
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: var(--color-astro-700);
+  border-radius: 2px;
+}
